@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6c815350fae5c429f83e99d1022958, type: 3}
   m_Name: NewRaftData 1
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  size: {x: 0.7, y: 1, z: 1}
+  moveSpeed: 3
+  size: {x: 1.2, y: 1, z: 1}

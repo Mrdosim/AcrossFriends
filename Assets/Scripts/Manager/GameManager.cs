@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public GameObject gameOverPanel;
     public PlayerMove player;
+    public AudioClip gameOverClip;
 
     private float score;
     private bool isGameOver;
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         gameOverPanel.SetActive(true);
+        SoundManager.Instance.PlayClip(gameOverClip); // 게임 오버 시 클립 재생
     }
 
     public void RestartGame()
@@ -65,7 +67,7 @@ public class GameManager : MonoBehaviour
         // MapManager의 InitializeMap 메서드를 호출하여 맵을 다시 생성
         MapManager.Instance.InitializeMap();
         player.ResetPosition();
-        player.animator.SetTrigger("Hit");
+        player.animator.SetBool("Hit",false);
     }
 
     public bool IsGameOver()

@@ -13,7 +13,7 @@ public class SoundSource : MonoBehaviour
         audioSource.clip = clip;
         audioSource.volume = soundEffectVolume;
         audioSource.pitch = 1f + Random.Range(-soundEffectPitchVariance, soundEffectPitchVariance);
-        audioSource.Play();
+        audioSource.PlayOneShot(clip);
 
         Invoke("Disable", clip.length + 2);
     }

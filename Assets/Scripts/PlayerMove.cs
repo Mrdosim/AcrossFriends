@@ -36,7 +36,6 @@ public class PlayerMove : MonoBehaviour
         // 캐릭터의 Y 좌표가 0 아래로 내려가면 게임 오버 처리
         if (transform.position.y < 0)
         {
-            animator.SetTrigger("Hit");
             GameManager.Instance.GameOver();
         }
     }
@@ -198,7 +197,7 @@ public class PlayerMove : MonoBehaviour
         }
         if (other.CompareTag("Crash"))
         {
-            animator.SetTrigger("Hit");
+            animator.SetBool("Hit",true);
             GameManager.Instance.GameOver();
             return;
         }

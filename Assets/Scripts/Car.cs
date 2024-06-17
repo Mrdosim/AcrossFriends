@@ -1,11 +1,11 @@
-using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Car : MonoBehaviour
 {
-    public float rangeDestroy = 12f;
+    public float maxRangeDestroy = 12f;
+    public float minRangeDestroy = -12f;
 
     private float moveSpeed;
     private string poolTag;
@@ -13,11 +13,10 @@ public class Car : MonoBehaviour
 
     void Update()
     {
-
         float moveX = moveSpeed * Time.deltaTime;
         this.transform.Translate(moveX, 0f, 0f);
 
-        if (this.transform.localPosition.x > rangeDestroy)
+        if (this.transform.localPosition.x > maxRangeDestroy || this.transform.localPosition.x < minRangeDestroy)
         {
             pool.ReturnToPool(poolTag, this.gameObject);
         }

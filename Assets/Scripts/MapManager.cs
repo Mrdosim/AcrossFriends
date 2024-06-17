@@ -96,11 +96,30 @@ public class MapManager : MonoBehaviour
         lineMapList.Clear();
         lineMapDic.Clear();
         fireworkMapDic.Clear(); // ÆøÁ× ¸Ê ÃÊ±âÈ­
+
+        ReturnAllObjectsToPool();
+
         lastLinePos = 0;
         minLine = minPosZ;
 
         lastRoadType = E_LastRoadType.Grass;
         GenerateInitialMap();
+    }
+
+    private void ReturnAllObjectsToPool()
+    {
+        var allRafts = FindObjectsOfType<Raft>();
+        var allCars = FindObjectsOfType<Car>();
+
+        foreach (var raft in allRafts)
+        {
+            ObjectPool.Instance.ReturnToPool(raft.gameObject.tag, raft.gameObject);
+        }
+
+        foreach (var car in allCars)
+        {
+            ObjectPool.Instance.ReturnToPool(car.gameObject.tag, car.gameObject);
+        }
     }
 
     private void GenerateInitialMap()
