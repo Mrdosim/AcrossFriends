@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (isGameOver) return;
+
         isGameOver = true;
         gameOverPanel.SetActive(true);
         SoundManager.Instance.PlayClip(gameOverClip); // 게임 오버 시 클립 재생

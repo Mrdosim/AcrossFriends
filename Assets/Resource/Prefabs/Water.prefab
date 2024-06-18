@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4164179931119698548}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 0}
+  m_LocalPosition: {x: -12, y: 0.006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: -6957830474601405898}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,8 +82,6 @@ MonoBehaviour:
   generationRate: 60
   cloneDelaySec: 1
   raftDataList:
-  - {fileID: 11400000, guid: 96ca2b8c685e9764f8bf9aafc175fa9c, type: 2}
-  - {fileID: 11400000, guid: 26a0e1e185dcde04c833d58b8afbcdb0, type: 2}
   - {fileID: 11400000, guid: 7def6440439307240a5ab7bddc9b3ec5, type: 2}
 --- !u!1 &5941674221900309171
 GameObject:
@@ -96,9 +94,10 @@ GameObject:
   - component: {fileID: 451646294303095520}
   - component: {fileID: 1335477826000374233}
   - component: {fileID: 8232793340060675326}
+  - component: {fileID: 715761861686796444}
   m_Layer: 0
   m_Name: WaterMesh
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,3 +167,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &715761861686796444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5941674221900309171}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.99999994, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

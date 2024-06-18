@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody rb;
     public Animator animator;
     public AudioClip musicClip;
-    private Vector3 initialPosition; // 초기 위치를 저장하는 변수
+    public Vector3 spawnPoint = new Vector3(0, 1, -1);
 
     private void Awake()
     {
@@ -25,19 +25,12 @@ public class PlayerMove : MonoBehaviour
         treeLayerMask = LayerMask.GetMask(tempLayer);
 
         MapManager.Instance.UpdateForwardNBAckMove((int)this.transform.position.z);
-
-        initialPosition = transform.position; // 초기 위치 저장
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdateRaft();
 
-        // 캐릭터의 Y 좌표가 0 아래로 내려가면 게임 오버 처리
-        if (transform.position.y < 0)
-        {
-            GameManager.Instance.GameOver();
-        }
     }
 
     public enum E_DirectionType
@@ -185,6 +178,8 @@ public class PlayerMove : MonoBehaviour
     protected Transform raftCompareObj = null;
     private void OnTriggerEnter(Collider other)
     {
+        if (GameManager.Instance.IsGameOver()) return;
+
         if (other.CompareTag("Raft"))
         {
             raftObject = other.transform.parent.GetComponent<Raft>();
@@ -195,9 +190,9 @@ public class PlayerMove : MonoBehaviour
             }
             return;
         }
-        if (other.CompareTag("Crash"))
+        if (other.CompareTag("Car") || other.CompareTag("Water"))
         {
-            animator.SetBool("Hit",true);
+            animator.SetBool("Hit", true);
             GameManager.Instance.GameOver();
             return;
         }
@@ -219,6 +214,6 @@ public class PlayerMove : MonoBehaviour
 
     public void ResetPosition()
     {
-        transform.position = initialPosition; // 플레이어의 위치를 초기 위치로 리셋
+        this.transform.localPosition = spawnPoint;
     }
 }
