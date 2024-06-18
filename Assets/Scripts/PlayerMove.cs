@@ -30,7 +30,6 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateRaft();
-
     }
 
     public enum E_DirectionType
@@ -95,15 +94,15 @@ public class PlayerMove : MonoBehaviour
                 this.transform.rotation = Quaternion.Euler(0, 0, 0);
                 break;
             case E_DirectionType.Down:
-                offSetPos = Vector3.back;
+                offSetPos = Vector3.back ;
                 this.transform.rotation = Quaternion.Euler(0, 180, 0);
                 break;
             case E_DirectionType.Left:
-                offSetPos = Vector3.left;
+                offSetPos = Vector3.left ;
                 this.transform.rotation = Quaternion.Euler(0, -90, 0);
                 break;
             case E_DirectionType.Right:
-                offSetPos = Vector3.right;
+                offSetPos = Vector3.right ;
                 this.transform.rotation = Quaternion.Euler(0, 90, 0);
                 break;
             default:
@@ -111,7 +110,7 @@ public class PlayerMove : MonoBehaviour
                 break;
         }
 
-        this.transform.position += offSetPos;
+        rb.MovePosition(rb.position + offSetPos);
         raftOffsetPos += offSetPos;
 
         MapManager.Instance.UpdateForwardNBAckMove((int)this.transform.position.z);
@@ -171,7 +170,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         Vector3 actorPos = raftObject.transform.position + raftOffsetPos;
-        this.transform.position = actorPos;
+        rb.MovePosition(actorPos);
     }
 
     protected Raft raftObject = null;
