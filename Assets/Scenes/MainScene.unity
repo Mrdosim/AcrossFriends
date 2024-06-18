@@ -2340,7 +2340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2737632553647433158, guid: 7d4fd3a1607320a4dad0608bf6f9ed88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 2737632553647433158, guid: 7d4fd3a1607320a4dad0608bf6f9ed88, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2386,9 +2386,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3241945878097526602, guid: 7d4fd3a1607320a4dad0608bf6f9ed88, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 3241945878097526602, guid: 7d4fd3a1607320a4dad0608bf6f9ed88, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7452597058700696057, guid: 7d4fd3a1607320a4dad0608bf6f9ed88, type: 3}
       propertyPath: m_Material
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555570911638731920, guid: 7d4fd3a1607320a4dad0608bf6f9ed88, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9151663466251480298, guid: 7d4fd3a1607320a4dad0608bf6f9ed88, type: 3}
       propertyPath: moveSpeed
